@@ -1,5 +1,6 @@
-#Cloudera Services Bootcamp Sydney May 2017
-##EC2 Node IPs
+# Cloudera Services Bootcamp Sydney May 2017
+
+## EC2 Node IPs
 
 `54.206.76.24`
 `54.252.147.21`
