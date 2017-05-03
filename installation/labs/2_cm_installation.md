@@ -91,7 +91,7 @@ PATH=$PATH:/usr/java/jdk.1.7.0_80/bin:/usr/java/jdk.1.7.0_80/jre/bin:/bin
 
 Recommendation would be to manually install the required JDK to all the nodes in a cluster instead of having CM install it for you so that all versions are the same.
 Do not enter Java Home Directory in Hosts using Cloudera Manager as it causes conflicts with the environment settings
-For nodes not having Cloudera Manager Server edit the cloudera-scm-agent file
+For nodes not having Cloudera Manager Server edit the cloudera-scm-agent file and add export JAVA_HOME in it
 
 Changed all the log directories in services and cloudera management services to /data_xvdb and also change Cloudera Management Service Command Storage Directory
 Changing the config.ini for agent to data_xvdb
