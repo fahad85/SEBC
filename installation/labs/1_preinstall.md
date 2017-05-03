@@ -51,6 +51,7 @@ Physical attributes can be checked using `df -k` or `lsblk`
 cat /sys/kernel/mm/transparent_hugepage/enabled
 sudo su root
 echo never >/sys/kernel/mm/transparent_hugepage/enabled
+echo never > /sys/kernel/mm/transparent_hugepage/defrag
 ```
 
 ## List Network Interface Configuration
