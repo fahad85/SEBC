@@ -59,21 +59,21 @@ wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2F
 
 tar xzf jdk-8u121-linux-x64.tar.gz
 
-cd /opt/jdk1.8.0_121/
-alternatives --install /usr/bin/java java /opt/jdk1.8.0_121/bin/java 2
+cd /usr/java/jdk1.8.0_121/
+alternatives --install /usr/bin/java java /usr/java/jdk1.8.0_121/bin/java 2
 alternatives --config java
 
-alternatives --install /usr/bin/jar jar /opt/jdk1.8.0_121/bin/jar 2
-alternatives --install /usr/bin/javac javac /opt/jdk1.8.0_121/bin/javac 2
-alternatives --set jar /opt/jdk1.8.0_121/bin/jar
-alternatives --set javac /opt/jdk1.8.0_121/bin/javac
+alternatives --install /usr/bin/jar jar /usr/java/jdk1.8.0_121/bin/jar 2
+alternatives --install /usr/bin/javac javac /usr/java/jdk1.8.0_121/bin/javac 2
+alternatives --set jar /usr/java/jdk1.8.0_121/bin/jar
+alternatives --set javac /usr/java/jdk1.8.0_121/bin/javac
 java -version
 
-export JAVA_HOME=/opt/jdk1.8.0_121
+export JAVA_HOME=/usr/java/jdk1.8.0_121
 
-export JRE_HOME=/opt/jdk1.8.0_121/jre
+export JRE_HOME=/usr/java/jdk1.8.0_121/jre
 
-export PATH=$PATH:/opt/jdk1.8.0_121/bin:/opt/jdk1.8.0_121/jre/bin:/bin
+export PATH=$PATH:/usr/java/jdk1.8.0_121/bin:/usr/java/jdk1.8.0_121/jre/bin:/bin
 ```
 
 Installed JDBC connectors on all the nodes using the following:

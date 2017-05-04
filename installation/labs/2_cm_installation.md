@@ -29,7 +29,7 @@ reboot
 This still did not fix the error which was now suggesting that JAVA_HOME is not correct. Opened the following file and added JAVA_HOME to it.
 ```
 sudo vi /etc/default/cloudera-scm-server
-export JAVA_HOME=/opt/jdk1.8.0_121
+export JAVA_HOME=/usr/java/jdk1.8.0_121
 ```
 
 MariaDB was not set to start on reboot so there was still an error in starting Cloudera Manager. Also set JAVA_HOME again
@@ -37,16 +37,16 @@ MariaDB was not set to start on reboot so there was still an error in starting C
 sudo service mariadb stop
 sudo service mariadb start
 sudo service mariadb status
-export JAVA_HOME=/opt/java/jdk1.8.0_121
+export JAVA_HOME=/usr/java/jdk1.8.0_121
 
-export JRE_HOME=/opt/java/jdk1.8.0_121/jre
+export JRE_HOME=/usr/java/jdk1.8.0_121/jre
 
-export PATH=$PATH:/opt/java/jdk1.8.0_121/bin:/opt/java/jdk1.8.0_121/jre/bin:/bin
+export PATH=$PATH:/usr/java/jdk1.8.0_121/bin:/usr/java/jdk1.8.0_121/jre/bin:/bin
 
 sudo vi /etc/environment
-JAVA_HOME=/opt/java/jdk1.8.0_121
-JRE_HOME=/opt/java/jdk1.8.0_121/jre
-PATH=$PATH:/opt/java/jdk1.8.0_121/bin:/opt/java/jdk1.8.0_121/jre/bin:/bin
+JAVA_HOME=/usr/java/jdk1.8.0_121
+JRE_HOME=/usr/java/jdk1.8.0_121/jre
+PATH=$PATH:/usr/java/jdk1.8.0_121/bin:/usr/java/jdk1.8.0_121/jre/bin:/bin
 
 ```
 added the inbound rule to allow 7180 port in the EC2 instances security group.
