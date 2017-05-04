@@ -37,16 +37,16 @@ MariaDB was not set to start on reboot so there was still an error in starting C
 sudo service mariadb stop
 sudo service mariadb start
 sudo service mariadb status
-export JAVA_HOME=/opt/jdk1.8.0_121
+export JAVA_HOME=/opt/java/jdk1.8.0_121
 
-export JRE_HOME=/opt/jdk1.8.0_121/jre
+export JRE_HOME=/opt/java/jdk1.8.0_121/jre
 
-export PATH=$PATH:/opt/jdk1.8.0_121/bin:/opt/jdk1.8.0_121/jre/bin:/bin
+export PATH=$PATH:/opt/java/jdk1.8.0_121/bin:/opt/java/jdk1.8.0_121/jre/bin:/bin
 
 sudo vi /etc/environment
-JAVA_HOME=/opt/jdk1.8.0_121
-JRE_HOME=/opt/jdk1.8.0_121/jre
-PATH=$PATH:/opt/jdk1.8.0_121/bin:/opt/jdk1.8.0_121/jre/bin:/bin
+JAVA_HOME=/opt/java/jdk1.8.0_121
+JRE_HOME=/opt/java/jdk1.8.0_121/jre
+PATH=$PATH:/opt/java/jdk1.8.0_121/bin:/opt/java/jdk1.8.0_121/jre/bin:/bin
 
 ```
 added the inbound rule to allow 7180 port in the EC2 instances security group.
@@ -80,18 +80,19 @@ Zookeeper threw an error of missing JDK directory because Cloudera Manager Wizar
 Ended up changing all JDKs to JDK1.7.80 using the following steps
 ```
 tar xzf jdk-7u80-linux-x64.tar.gz -C /usr/java/
-export JAVA_HOME=/usr/java/jdk.1.7.0_80
+export JAVA_HOME=/usr/java/jdk1.7.0_80
 vi /etc/default/cloudera-scm-server
-change JAVA_HOME to export JAVA_HOME=/usr/java/jdk.1.7.0_80
+change JAVA_HOME to export JAVA_HOME=/usr/java/jdk1.7.0_80
 sudo vi /etc/environment
-JAVA_HOME=/usr/java/jdk.1.7.0_80
-JRE_HOME=/usr/java/jdk.1.7.0_80/jre
-PATH=$PATH:/usr/java/jdk.1.7.0_80/bin:/usr/java/jdk.1.7.0_80/jre/bin:/bin
+JAVA_HOME=/usr/java/jdk1.7.0_80
+JRE_HOME=/usr/java/jdk1.7.0_80/jre
+PATH=$PATH:/usr/java/jdk1.7.0_80/bin:/usr/java/jdk1.7.0_80/jre/bin:/bin
 ```
 
 Recommendation would be to manually install the required JDK to all the nodes in a cluster instead of having CM install it for you so that all versions are the same.
 Do not enter Java Home Directory in Hosts using Cloudera Manager as it causes conflicts with the environment settings
 For nodes not having Cloudera Manager Server edit the cloudera-scm-agent file and add export JAVA_HOME in it
+/etc/default/cloudera-scm-server and /etc/default/cloudera-scm-agent
 
 Changed all the log directories in services and cloudera management services to /data_xvdb and also change Cloudera Management Service Command Storage Directory
 Changing the config.ini for agent to data_xvdb
